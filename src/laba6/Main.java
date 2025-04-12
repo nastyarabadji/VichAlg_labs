@@ -22,8 +22,20 @@ class HashTable {
         this.table.get(index).add(word);
     }
     public boolean search(String word) {
-        return this.table.get(hash(word)).contains(word);
+        int index = hash(word);
+        LinkedList<String> bucket = this.table.get(index);
+        int comparisons = 0; // счётчик сравнений
+        for (String w : bucket) {
+            comparisons++; // увеличиваем счётчик
+            if (w.equals(word)) {
+                System.out.println("Слово найдено. Количество сравнений: " + comparisons);
+                return true;
+            }
+        }
+        System.out.println("Слово не найдено. Количество сравнений: " + comparisons);
+        return false;
     }
+
     public void display() {
         for (int i = 0; i < this.size; ++i) {
             System.out.println(i + ": " + this.table.get(i));
