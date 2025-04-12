@@ -1,6 +1,6 @@
 package laba5;
 
-public class Main {
+public class task2 {
     public static void main(String[] args) {
 
     }
