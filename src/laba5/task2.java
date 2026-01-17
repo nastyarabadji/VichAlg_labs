@@ -40,7 +40,7 @@ class SuffixTree {
             SuffixTreeNode current = root;
             for (int j = i; j < text.length(); j++) {
                 char c = text.charAt(j);
-                current.getChildren().putIfAbsent(c, new SuffixTreeNode());
+                current.getChildren().putIfAbsent(c, new SuffixTreeNode()); // Проверяет, есть ли символ c в дочерних узлах current
                 current = current.getChildren().get(c);
             }
             current.setEnd(true);
